@@ -16,11 +16,13 @@ async function getAdvice() {
     } catch (error) {
         card.removeChild(adviceText);
         card.removeChild(adviceNum);
-
+        card.classList.remove('card-advice');
         // for user
         const paragraph = document.createElement('p');
-        paragraph.innerHTML = `<p><strong>Something went wrong!</strong> <br> 
-        Can't generate a new piece of advice...</p>`;
+        const strong = document.createElement('strong');
+        strong.textContent = 'Something went wrong!';
+        paragraph.textContent = "Can't generate a new piece of advice...";
+        paragraph.appendChild(strong);
         card.appendChild(paragraph);
         card.insertBefore(paragraph, card.firstChild);
         
